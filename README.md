@@ -1,5 +1,5 @@
-Fresh LED classes
-=================
+LED classes
+===========
 
 Import order:
 1. LedColorScheme.xojo_code
@@ -7,8 +7,6 @@ Import order:
 3. LedFontCatalog.xojo_code
 4. LedDisplayRenderer.xojo_code
 5. LedDisplayCanvas.xojo_code
-
-Delete any older versions of those classes/modules first.
 
 Expected picture resources in the project:
 - FNT18X21
@@ -32,10 +30,10 @@ Sub Opening()
   mRenderer.BackgroundColor = &c000000
   mRenderer.SetFont("FNT18X21")
   mRenderer.SetText(Array( _
-    "NUMBER OF PATIENTS:  1234567890", _
-    "NUMBER OF STUDIES:   1234567890", _
-    "NUMBER OF SERIES:    1234567890", _
-    "NUMBER OF INSTANCES: 1234567890" _
+    "TEST1:  1234567890", _
+    "TEST2:   1234567890", _
+    "TEST3:    1234567890", _
+    "TEST4: 1234567890" _
   ))
   LedDisplayCanvas1.Renderer = mRenderer
   LedDisplayCanvas1.SizeToContent
@@ -47,6 +45,6 @@ Timer Action:
   LedDisplayCanvas1.Refresh
 
 Notes:
-- text is forced to uppercase because the bitmap fonts are uppercase-oriented
+- text is forced to uppercase if the bitmap fonts are uppercase-oriented
 - scrolling is pixel-column based
 - font tinting uses the font bitmap as a mask
