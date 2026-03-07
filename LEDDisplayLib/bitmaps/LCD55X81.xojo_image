@@ -1,0 +1,40 @@
+#tag MultiImage
+Image LCD55X81
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAABEL2hvbWUvYnJpYW4vZGV2L0xFRERpc3BsYXlTdGFnaW5nL0xDRCBMRUQgQml0bWFwIEltYWdlcy9MQ0Q1NVg4MS5wbmcDAAAAAAEBBAAAAAABAAAAAAAAAA==
+		FullPath = /home/brian/dev/LEDDisplayStaging/LCD LED Bitmap Images/LCD55X81.png
+		PartialPath = LCD LED Bitmap Images\LCD55X81.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 825.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 81.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 825.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 81.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 825.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 81.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

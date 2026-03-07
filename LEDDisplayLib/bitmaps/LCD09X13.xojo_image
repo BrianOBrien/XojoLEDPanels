@@ -1,0 +1,40 @@
+#tag MultiImage
+Image LCD09X13
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAABEL2hvbWUvYnJpYW4vZGV2L0xFRERpc3BsYXlTdGFnaW5nL0xDRCBMRUQgQml0bWFwIEltYWdlcy9MQ0QwOVgxMy5wbmcDAAAAAAEBBAAAAAABAAAAAAAAAA==
+		FullPath = /home/brian/dev/LEDDisplayStaging/LCD LED Bitmap Images/LCD09X13.png
+		PartialPath = LCD LED Bitmap Images\LCD09X13.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 136.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 13.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 136.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 13.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 136.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 13.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage
