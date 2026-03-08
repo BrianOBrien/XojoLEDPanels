@@ -53,6 +53,7 @@ Begin DesktopWindow Window1
       Width           =   400
    End
    Begin Timer Timer1
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   40
@@ -76,7 +77,7 @@ End
 		  
 		  //mRenderer.ForegroundColor = &c8B5CF6
 		  //mRenderer.ColorScheme = LedColorScheme.FromBaseColor(mRenderer.ForegroundColor)
-		  
+		  mRenderer.ScrollDirection = LEDDisplayMod.LedScrollDirection.Up
 		  mRenderer.SetFont("FNT18X21")
 		  
 		  mRenderer.SetText(Array( _

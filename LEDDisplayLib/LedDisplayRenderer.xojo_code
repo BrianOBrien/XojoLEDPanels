@@ -248,16 +248,21 @@ Protected Class LedDisplayRenderer
 		  EnsureLines
 		  
 		  displayH = IdealHeight
+		  
 		  g.DrawingColor = BackgroundColor
 		  g.FillRectangle(0, 0, g.Width, g.Height)
 		  
 		  panel = MakePanelPicture
 		  If panel Is Nil Then Return
 		  
-		  stripH = panel.Height + mFont.GlyphHeight
+		  stripH = panel.Height
+		  If stripH <= 0 Then Return
 		  
 		  If ScrollDirection = LedScrollDirection.Down Then
 		    y = mVerticalOffset - stripH
+		    While y > -stripH
+		      y = y - stripH
+		    Wend
 		  Else
 		    y = -mVerticalOffset
 		    While y > -stripH
@@ -398,9 +403,18 @@ Protected Class LedDisplayRenderer
 	#tag Method, Flags = &h21
 		Private Function VerticalStripHeight() As Integer
 		  If mFont Is Nil Then Return 0
-		  Return (mLines.Count + 1) * mFont.GlyphHeight
+		  Return Rows * mFont.GlyphHeight
 		End Function
 	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event CycleCompleted()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event WrapOccured()
+	#tag EndHook
 
 
 	#tag Property, Flags = &h0
@@ -523,6 +537,14 @@ Protected Class LedDisplayRenderer
 			Group="Behavior"
 			InitialValue="&c000000"
 			Type="Color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ScrollDirection"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="LedScrollDirection"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
