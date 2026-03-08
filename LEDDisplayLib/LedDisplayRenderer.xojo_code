@@ -1,469 +1,350 @@
 #tag Class
 Protected Class LedDisplayRenderer
-	#tag Method, Flags = &h21
-		Private Function CommonStripCharCount() As Integer
-		  Var i As Integer
-		  Var longest As Integer
-		  
-		  longest = Columns
-		  
-		  For i = 0 To mLines.LastIndex
-		    If mLines(i).Length > longest Then
-		      longest = mLines(i).Length
-		    End If
-		  Next
-		  
-		  longest = longest + Columns
-		  
-		  Return longest
+	#tag Method, Flags = &h0
+		Function AvailableFontNames() As String()
+		  Var names() As String
+		  names.Append("FNT12X14")
+		  names.Append("FNT18X21")
+		  names.Append("LCD08X13")
+		  names.Append("LCD09X13")
+		  names.Append("LCD13X20")
+		  names.Append("LCD15X24")
+		  names.Append("LCD39X51")
+		  names.Append("LCD55X81")
+		  Return names
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor()
-		  Rows = 1
-		  Columns = 16
-		  BackgroundColor = &c000000
-		  ForegroundColor = &c0A84FF
-		  ColorScheme = LedColorScheme.FromBaseColor(ForegroundColor)
-		  ScrollDirection = LedScrollDirection.Left
-		  mGapColumns = 4
-		  mHorizontalOffset = 0
-		  mVerticalOffset = 0
-		  
+		  mBackgroundColor = &c000000
+		  mForegroundColor = &c0A84FF
+		  mRows = 1
+		  mColumns = 16
 		  SetFont("FNT18X21")
-		  EnsureLines
+		  EnsureRowBuffers
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub EnsureLines()
+		Private Sub EnsureRowBuffers()
 		  Var i As Integer
 		  
-		  If Rows < 1 Then Rows = 1
-		  ReDim mLines(Rows - 1)
+		  If mRows < 1 Then mRows = 1
+		  If mColumns < 1 Then mColumns = 1
 		  
-		  For i = 0 To Rows - 1
-		    If mLines(i) = "" Then
-		      mLines(i) = ""
-		    End If
-		  Next
+		  If mRowBuffers.Ubound < mRows - 1 Then
+		    For i = mRowBuffers.Ubound + 1 To mRows - 1
+		      mRowBuffers.Append(New LedRowBuffer(mColumns, ""))
+		    Next i
+		  ElseIf mRowBuffers.Ubound > mRows - 1 Then
+		    While mRowBuffers.Ubound > mRows - 1
+		      mRowBuffers.RemoveAt(mRowBuffers.Ubound)
+		    Wend
+		  End If
+		  
+		  For i = 0 To mRowBuffers.Ubound
+		    mRowBuffers(i).DisplayWidth = mColumns
+		  Next i
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function GapText() As String
-		  Var s As String = ""
+		Private Function FontByName(fontName as String) As LedFontInfo
 		  Var i As Integer
-		  Var gapChars As Integer
+		  Var glyphs As String
 		  
-		  If mFont Is Nil Then Return " "
-		  
-		  gapChars = Columns
-		  
-		  For i = 1 To gapChars
-		    s = s + " "
-		  Next
-		  
-		  Return s
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function HorizontalStripText(row As Integer) As String
-		  Var s As String
-		  Var targetLen As Integer
-		  
-		  If row < 0 Or row > mLines.LastIndex Then Return ""
-		  
-		  s = mLines(row)
-		  If s = "" Then s = " "
-		  
-		  targetLen = CommonStripCharCount
-		  
-		  While s.Length < targetLen
-		    s = s + " "
-		  Wend
-		  
-		  Return s
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function HorizontalStripWidth() As Integer
-		  If mFont Is Nil Then Return 0
-		  Return CommonStripCharCount * mFont.GlyphWidth
+		  Select Case fontName
+		  Case "FNT12X14"
+		    glyphs = ""
+		    For i = 32 To 127
+		      glyphs = glyphs + Chr(i)
+		    Next i
+		    For i = 192 To 255
+		      glyphs = glyphs + Chr(i)
+		    Next i
+		    Return New LedFontInfo(fontName, glyphs, 12, 14, FNT12X14)
+		    
+		  Case "FNT18X21"
+		    glyphs = ""
+		    For i = 32 To 95
+		      glyphs = glyphs + Chr(i)
+		    Next i
+		    For i = 192 To 223
+		      glyphs = glyphs + Chr(i)
+		    Next i
+		    Return New LedFontInfo(fontName, glyphs, 18, 21, FNT18X21)
+		    
+		  Case "LCD08X13"
+		    Return New LedFontInfo(fontName, " 0123456789|_-:", 8, 13, LCD08X13)
+		    
+		  Case "LCD09X13"
+		    Return New LedFontInfo(fontName, " 0123456789|_-:", 9, 13, LCD09X13)
+		    
+		  Case "LCD13X20"
+		    Return New LedFontInfo(fontName, " 0123456789|_-:", 13, 20, LCD13X20)
+		    
+		  Case "LCD15X24"
+		    Return New LedFontInfo(fontName, " 0123456789|_-:", 15, 24, LCD15X24)
+		    
+		  Case "LCD39X51"
+		    Return New LedFontInfo(fontName, " 0123456789|_-:", 39, 51, LCD39X51)
+		    
+		  Case "LCD55X81"
+		    Return New LedFontInfo(fontName, " 0123456789|_-:", 55, 81, LCD55X81)
+		    
+		  Else
+		    Return Nil
+		  End Select
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function IdealHeight() As Integer
-		  If mFont Is Nil Then Return 0
-		  Return Rows * mFont.GlyphHeight
+		  If mFontInfo Is Nil Then Return 0
+		  Return mRows * mFontInfo.GlyphHeight
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function IdealWidth() As Integer
-		  If mFont Is Nil Then Return 0
-		  Return Columns * mFont.GlyphWidth
+		  If mFontInfo Is Nil Then Return 0
+		  Return mColumns * mFontInfo.GlyphWidth
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function MakePanelPicture() As Picture
-		  Var panel As New Picture(IdealWidth, IdealHeight, 32)
-		  Var g As Graphics = panel.Graphics
+		Private Function IndexForGlyph(c as String) As Integer
+		  If mFontInfo Is Nil Then Return 0
+		  If mFontInfo.Glyphs.Len = 160 Then
+		    Return mFontInfo.Glyphs.InStrB(0, c)
+		  Else
+		    Return mFontInfo.Glyphs.InStr(0, c)
+		  End If
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function NewPictureRGBA(w as Integer, h as Integer) As Picture
+		  #If TargetCocoa Then
+		    Return New Picture(w, h)
+		  #ElseIf TargetWin32 Then
+		    Return New Picture(w, h)
+		  #Else
+		    Return New Picture(w, h, 32)
+		  #EndIf
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Render(g as Graphics)
+		  Render(g, g.Width, g.Height)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Render(g as Graphics, availableWidth as Integer, availableHeight as Integer)
 		  Var row As Integer
-		  Var rowPic As Picture
-		  Var y As Integer
-		  
-		  g.DrawingColor = BackgroundColor
-		  g.FillRectangle(0, 0, panel.Width, panel.Height)
-		  
-		  For row = 0 To Rows - 1
-		    rowPic = MakeRowPicture(HorizontalStripText(row))
-		    If rowPic <> Nil Then
-		      y = row * mFont.GlyphHeight
-		      g.DrawPicture(rowPic, 0, y)
-		    End If
-		  Next
-		  
-		  Return panel
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function MakeRowPicture(value As String) As Picture
-		  Var picWidth As Integer
-		  Var picHeight As Integer
-		  Var p As Picture
-		  Var gx As Graphics
-		  Var i As Integer
-		  Var ch As String
+		  Var col As Integer
+		  Var sx, sy, dx, dy As Integer
 		  Var glyphIndex As Integer
-		  Var sx As Integer
-		  Var dx As Integer
-		  Var glyphPic As Picture
-		  Var gg As Graphics
-		  
-		  If mFont Is Nil Then Return Nil
-		  
-		  picWidth = value.Length * mFont.GlyphWidth
-		  If picWidth < 1 Then picWidth = mFont.GlyphWidth
-		  picHeight = mFont.GlyphHeight
-		  
-		  p = New Picture(picWidth, picHeight, 32)
-		  gx = p.Graphics
-		  gx.DrawingColor = BackgroundColor
-		  gx.FillRectangle(0, 0, picWidth, picHeight)
-		  
-		  For i = 0 To value.Length - 1
-		    ch = value.Middle(i, 1)
-		    glyphIndex = mFont.Glyphs.IndexOf(ch)
-		    
-		    If glyphIndex < 0 Then
-		      glyphIndex = mFont.Glyphs.IndexOf(ch.Uppercase)
-		    End If
-		    
-		    If glyphIndex >= 0 Then
-		      sx = glyphIndex * mFont.GlyphWidth
-		      dx = i * mFont.GlyphWidth
-		      
-		      glyphPic = New Picture(mFont.GlyphWidth, mFont.GlyphHeight, 32)
-		      gg = glyphPic.Graphics
-		      gg.DrawingColor = ForegroundColor
-		      gg.FillRectangle(0, 0, mFont.GlyphWidth, mFont.GlyphHeight)
-		      glyphPic.Mask.Graphics.DrawPicture(mFont.Bitmap, 0, 0, mFont.GlyphWidth, mFont.GlyphHeight, sx, 0, mFont.GlyphWidth, mFont.GlyphHeight)
-		      
-		      gx.DrawPicture(glyphPic, dx, 0)
-		    End If
-		  Next
-		  
-		  Return p
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub Render(g As Graphics)
-		  Select Case ScrollDirection
-		  Case LedScrollDirection.Up, LedScrollDirection.Down
-		    RenderVertical(g)
-		  Else
-		    RenderHorizontal(g)
-		  End Select
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub RenderHorizontal(g As Graphics)
-		  Var row As Integer
-		  Var y As Integer
-		  Var displayW As Integer
-		  Var stripText As String
-		  Var stripPic As Picture
-		  Var stripW As Integer
+		  Var ch As String
+		  Var txt As String
+		  Var leds As Picture
+		  Var displayWidth As Integer
+		  Var displayHeight As Integer
 		  Var x As Integer
-		  
-		  If mFont Is Nil Then Return
-		  EnsureLines
-		  displayW = IdealWidth
-		  
-		  g.DrawingColor = BackgroundColor
-		  g.FillRectangle(0, 0, g.Width, g.Height)
-		  
-		  For row = 0 To Rows - 1
-		    stripText = HorizontalStripText(row)
-		    stripPic = MakeRowPicture(stripText)
-		    If stripPic Is Nil Then Continue
-		    
-		    stripW = stripPic.Width
-		    y = row * mFont.GlyphHeight
-		    
-		    If ScrollDirection = LedScrollDirection.Right Then
-		      x = mHorizontalOffset - stripW
-		    Else
-		      x = -mHorizontalOffset
-		      While x > -stripW
-		        x = x - stripW
-		      Wend
-		    End If
-		    
-		    While x < displayW
-		      g.DrawPicture(stripPic, x, y)
-		      x = x + stripW
-		    Wend
-		  Next
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub RenderVertical(g As Graphics)
-		  Var panel As Picture
-		  Var stripH As Integer
 		  Var y As Integer
-		  Var displayH As Integer
 		  
-		  If mFont Is Nil Then Return
-		  EnsureLines
+		  g.ForeColor = mBackgroundColor
+		  g.FillRect(0, 0, availableWidth, availableHeight)
 		  
-		  displayH = IdealHeight
+		  If mFontInfo Is Nil Then Return
+		  If mFontInfo.Bitmap Is Nil Then Return
 		  
-		  g.DrawingColor = BackgroundColor
-		  g.FillRectangle(0, 0, g.Width, g.Height)
+		  EnsureRowBuffers
 		  
-		  panel = MakePanelPicture
-		  If panel Is Nil Then Return
+		  displayWidth = mFontInfo.GlyphWidth * mColumns
+		  displayHeight = mFontInfo.GlyphHeight * mRows
+		  leds = NewPictureRGBA(displayWidth, displayHeight)
 		  
-		  stripH = panel.Height
-		  If stripH <= 0 Then Return
+		  leds.Graphics.ForeColor = mBackgroundColor
+		  leds.Graphics.FillRect(0, 0, displayWidth, displayHeight)
 		  
-		  If ScrollDirection = LedScrollDirection.Down Then
-		    y = mVerticalOffset - stripH
-		    While y > -stripH
-		      y = y - stripH
-		    Wend
-		  Else
-		    y = -mVerticalOffset
-		    While y > -stripH
-		      y = y - stripH
-		    Wend
-		  End If
+		  For row = 0 To mRows - 1
+		    If row <= mRowBuffers.Ubound Then
+		      txt = mRowBuffers(row).VisibleText
+		      
+		      For col = 1 To mColumns
+		        ch = txt.Mid(col, 1)
+		        glyphIndex = IndexForGlyph(ch)
+		        If glyphIndex = 0 Then
+		          glyphIndex = IndexForGlyph(" ")
+		        End If
+		        
+		        If glyphIndex > 0 Then
+		          sx = (glyphIndex - 1) * mFontInfo.GlyphWidth
+		          sy = 0
+		          dx = (col - 1) * mFontInfo.GlyphWidth
+		          dy = row * mFontInfo.GlyphHeight
+		          
+		          leds.Graphics.ForeColor = mForegroundColor
+		          leds.Graphics.FillRect(dx, dy, mFontInfo.GlyphWidth, mFontInfo.GlyphHeight)
+		          
+		          leds.Mask.Graphics.DrawPicture(mFontInfo.Bitmap, dx, dy, mFontInfo.GlyphWidth, mFontInfo.GlyphHeight, sx, sy, mFontInfo.GlyphWidth, mFontInfo.GlyphHeight)
+		        End If
+		      Next col
+		    End If
+		  Next row
 		  
-		  While y < displayH
-		    g.DrawPicture(panel, 0, y)
-		    y = y + stripH
-		  Wend
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub ResetScroll()
-		  mHorizontalOffset = 0
-		  mVerticalOffset = 0
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub ScrollDownStep()
-		  Var stripHeight As Integer
-		  
-		  If mFont Is Nil Then Return
-		  stripHeight = VerticalStripHeight
-		  If stripHeight <= 0 Then Return
-		  
-		  mVerticalOffset = mVerticalOffset - 1
-		  If mVerticalOffset < 0 Then
-		    mVerticalOffset = stripHeight - 1
-		  End If
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub ScrollLeftStep()
-		  Var stripWidth As Integer
-		  
-		  If mFont Is Nil Then Return
-		  
-		  stripWidth = HorizontalStripWidth
-		  If stripWidth <= 0 Then Return
-		  
-		  mHorizontalOffset = mHorizontalOffset + 1
-		  
-		  If mHorizontalOffset >= stripWidth Then
-		    mHorizontalOffset = 0
-		  End If
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub ScrollRightStep()
-		  Var stripWidth As Integer
-		  
-		  If mFont Is Nil Then Return
-		  stripWidth = HorizontalStripWidth
-		  If stripWidth <= 0 Then Return
-		  
-		  mHorizontalOffset = mHorizontalOffset - 1
-		  If mHorizontalOffset < 0 Then
-		    mHorizontalOffset = stripWidth - 1
-		  End If
+		  x = (availableWidth - displayWidth) / 2
+		  y = (availableHeight - displayHeight) / 2
+		  g.DrawPicture(leds, x, y)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ScrollStep()
-		  Select Case ScrollDirection
-		  Case LedScrollDirection.Left
-		    ScrollLeftStep
-		  Case LedScrollDirection.Right
-		    ScrollRightStep
-		  Case LedScrollDirection.Up
-		    ScrollUpStep
-		  Case LedScrollDirection.Down
-		    ScrollDownStep
-		  Else
-		    // no scrolling
-		  End Select
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub ScrollUpStep()
-		  Var stripHeight As Integer
-		  
-		  If mFont Is Nil Then Return
-		  stripHeight = VerticalStripHeight
-		  If stripHeight <= 0 Then Return
-		  
-		  mVerticalOffset = mVerticalOffset + 1
-		  If mVerticalOffset >= stripHeight Then
-		    mVerticalOffset = 0
-		  End If
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub SetFont(name As String)
-		  mFont = LedFontCatalog.GetFont(name)
-		  ResetScroll
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub SetRowText(index As Integer, value As String)
-		  If index < 0 Then Return
-		  
-		  EnsureLines
-		  If index > mLines.LastIndex Then Return
-		  
-		  mLines(index) = value.Uppercase
-		  ResetScroll
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub SetText(lines() As String)
 		  Var i As Integer
-		  
-		  EnsureLines
-		  
-		  For i = 0 To Rows - 1
-		    If i <= lines.LastIndex Then
-		      mLines(i) = lines(i).Uppercase
-		    Else
-		      mLines(i) = ""
-		    End If
-		  Next
-		  
-		  ResetScroll
+		  EnsureRowBuffers
+		  For i = 0 To mRowBuffers.Ubound
+		    mRowBuffers(i).ScrollStep
+		  Next i
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Function VerticalStripHeight() As Integer
-		  If mFont Is Nil Then Return 0
-		  Return Rows * mFont.GlyphHeight
-		End Function
+	#tag Method, Flags = &h0
+		Sub SetFont(fontName as String)
+		  Var info As LedFontInfo = FontByName(fontName)
+		  If info Is Nil Then
+		    Raise New UnsupportedFormatException
+		  End If
+		  mFontInfo = info
+		  mFontName = fontName
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetRowText(row as Integer, value as String)
+		  EnsureRowBuffers
+		  If row < 0 Or row > mRowBuffers.Ubound Then
+		    Raise New OutOfBoundsException
+		  End If
+		  mRowBuffers(row).Message = value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetText(lines() as String)
+		  Var i As Integer
+		  EnsureRowBuffers
+		  For i = 0 To mRows - 1
+		    If i <= lines.Ubound Then
+		      mRowBuffers(i).Message = lines(i)
+		    Else
+		      mRowBuffers(i).Message = ""
+		    End If
+		    mRowBuffers(i).DisplayWidth = mColumns
+		    mRowBuffers(i).Reset
+		  Next i
+		End Sub
 	#tag EndMethod
 
 
-	#tag Hook, Flags = &h0
-		Event CycleCompleted()
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event WrapOccured()
-	#tag EndHook
-
-
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mBackgroundColor
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mBackgroundColor = value
+			End Set
+		#tag EndSetter
 		BackgroundColor As Color
-	#tag EndProperty
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		ColorScheme As LedColorScheme
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mColumns
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mColumns = value
+			  EnsureRowBuffers
+			End Set
+		#tag EndSetter
 		Columns As Integer
-	#tag EndProperty
+	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mFontName
+			End Get
+		#tag EndGetter
+		FontName As String
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mForegroundColor
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mForegroundColor = value
+			End Set
+		#tag EndSetter
 		ForegroundColor As Color
+	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private mBackgroundColor As Color
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private mFont As LedFontInfo
+		Private mColumns As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private mGapColumns As Integer
+		Private mFontInfo As LedFontInfo
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private mHorizontalOffset As Integer
+		Private mFontName As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private mLines() As String
+		Private mForegroundColor As Color
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private mVerticalOffset As Integer
+		Private mRowBuffers(-1) As LedRowBuffer
 	#tag EndProperty
 
-	#tag Property, Flags = &h0
+	#tag Property, Flags = &h21
+		Private mRows As Integer
+	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mRows
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mRows = value
+			  EnsureRowBuffers
+			End Set
+		#tag EndSetter
 		Rows As Integer
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ScrollDirection As LedScrollDirection
-	#tag EndProperty
-
-
-	#tag Using, Name = LedDisplayMod
-	#tag EndUsing
+	#tag EndComputedProperty
 
 
 	#tag ViewBehavior
@@ -508,11 +389,11 @@ Protected Class LedDisplayRenderer
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Rows"
+			Name="BackgroundColor"
 			Visible=false
 			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
+			InitialValue="&c000000"
+			Type="Color"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -524,11 +405,11 @@ Protected Class LedDisplayRenderer
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="BackgroundColor"
+			Name="FontName"
 			Visible=false
 			Group="Behavior"
-			InitialValue="&c000000"
-			Type="Color"
+			InitialValue=""
+			Type="String"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -540,11 +421,11 @@ Protected Class LedDisplayRenderer
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="ScrollDirection"
+			Name="Rows"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="LedScrollDirection"
+			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

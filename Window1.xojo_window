@@ -53,10 +53,9 @@ Begin DesktopWindow Window1
       Width           =   400
    End
    Begin Timer Timer1
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
-      Period          =   40
+      Period          =   400
       RunMode         =   2
       Scope           =   0
       TabPanelIndex   =   0
@@ -67,17 +66,17 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
+		  //Timer1.RunMode = Timer.RunModes.Off
+		  
 		  mRenderer = New LedDisplayRenderer
 		  
 		  mRenderer.Rows = 4
 		  mRenderer.Columns = 32
 		  
 		  mRenderer.BackgroundColor = &c000000
-		  mRenderer.ColorScheme = LedColorScheme.FromBaseColor(&c0A84FF) // Xojo blue
 		  
 		  //mRenderer.ForegroundColor = &c8B5CF6
 		  //mRenderer.ColorScheme = LedColorScheme.FromBaseColor(mRenderer.ForegroundColor)
-		  mRenderer.ScrollDirection = LEDDisplayMod.LedScrollDirection.Up
 		  mRenderer.SetFont("FNT18X21")
 		  
 		  mRenderer.SetText(Array( _
@@ -90,8 +89,15 @@ End
 		  LedDisplayCanvas1.Renderer = mRenderer
 		  LedDisplayCanvas1.SizeToContent
 		  LedDisplayCanvas1.Refresh
-		  
-		  
+		  '
+		  'mRenderer = New LedDisplayRenderer
+		  'mRenderer.Rows = 4
+		  'mRenderer.Columns = 24
+		  'mRenderer.ForegroundColor = &c0A84FF
+		  'mRenderer.BackgroundColor = &c000000
+		  'mRenderer.ShowGlow = True
+		  'mRenderer.ShowGlassOverlay = True
+		  'mRenderer.SetFont("FNT18X21")
 		End Sub
 	#tag EndEvent
 
@@ -101,8 +107,14 @@ End
 	#tag EndProperty
 
 
+	#tag Using, Name = LEDDisplayMod
+	#tag EndUsing
+
+
 #tag EndWindowCode
 
+#tag Events LedDisplayCanvas1
+#tag EndEvents
 #tag Events Timer1
 	#tag Event
 		Sub Action()
