@@ -1,8 +1,8 @@
 #tag MultiImage
 Image LCD55X81
 	#tag ImageRepresentation
-		SaveInfo = APHRcwECAQAAAAAwL2hvbWUvYnJpYW4vZGV2L1hvam9MRURGb250c1N0YWdpbmcvTENENTVYODEucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
-		FullPath = /home/brian/dev/XojoLEDFontsStaging/LCD55X81.png
+		SaveInfo = APHRcwECAQAAAAAqL2hvbWUvYnJpYW4vZGV2L1hvam9MRURQYW5lbHMvTENENTVYODEucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
+		FullPath = /home/brian/dev/XojoLEDPanels/LCD55X81.png
 		PartialPath = LCD55X81.png
 		#tag ImageSpecification
 			Comment = 
@@ -18,22 +18,22 @@ Image LCD55X81
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 825.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 144
-			VSize = 81.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 	#tag ImageRepresentation
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 825.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 216
-			VSize = 81.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 End Image

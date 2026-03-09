@@ -1,8 +1,8 @@
 #tag MultiImage
 Image LCD39X51
 	#tag ImageRepresentation
-		SaveInfo = APHRcwECAQAAAAAwL2hvbWUvYnJpYW4vZGV2L1hvam9MRURGb250c1N0YWdpbmcvTENEMzlYNTEucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
-		FullPath = /home/brian/dev/XojoLEDFontsStaging/LCD39X51.png
+		SaveInfo = APHRcwECAQAAAAAqL2hvbWUvYnJpYW4vZGV2L1hvam9MRURQYW5lbHMvTENEMzlYNTEucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
+		FullPath = /home/brian/dev/XojoLEDPanels/LCD39X51.png
 		PartialPath = LCD39X51.png
 		#tag ImageSpecification
 			Comment = 
@@ -18,22 +18,22 @@ Image LCD39X51
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 585.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 144
-			VSize = 51.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 	#tag ImageRepresentation
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 585.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 216
-			VSize = 51.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 End Image

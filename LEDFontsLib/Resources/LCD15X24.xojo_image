@@ -1,8 +1,8 @@
 #tag MultiImage
 Image LCD15X24
 	#tag ImageRepresentation
-		SaveInfo = APHRcwECAQAAAAAwL2hvbWUvYnJpYW4vZGV2L1hvam9MRURGb250c1N0YWdpbmcvTENEMTVYMjQucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
-		FullPath = /home/brian/dev/XojoLEDFontsStaging/LCD15X24.png
+		SaveInfo = APHRcwECAQAAAAAqL2hvbWUvYnJpYW4vZGV2L1hvam9MRURQYW5lbHMvTENEMTVYMjQucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
+		FullPath = /home/brian/dev/XojoLEDPanels/LCD15X24.png
 		PartialPath = LCD15X24.png
 		#tag ImageSpecification
 			Comment = 
@@ -18,22 +18,22 @@ Image LCD15X24
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 225.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 144
-			VSize = 24.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 	#tag ImageRepresentation
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 225.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 216
-			VSize = 24.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 End Image

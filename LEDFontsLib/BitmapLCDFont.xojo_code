@@ -13,6 +13,17 @@ Inherits BitmapFontBase
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function GlyphAdvance(ch As String) As Integer
+		  Select Case ch
+		  Case ":", "."
+		    Return Max(1, CellWidth \ 2)
+		  Else
+		    Return CellWidth
+		  End Select
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub LoadMessage(value As String)
 		  Message = value
 		  ResetScroll
@@ -146,7 +157,7 @@ Inherits BitmapFontBase
 			Group="Behavior"
 			InitialValue=""
 			Type="String"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ScrollIndex"
