@@ -1,13 +1,13 @@
 #tag MultiImage
-Image LCD09X13
+Image LCD08X13
 	#tag ImageRepresentation
-		SaveInfo = APHRcwECAQAAAABEL2hvbWUvYnJpYW4vZGV2L0xFRERpc3BsYXlTdGFnaW5nL0xDRCBMRUQgQml0bWFwIEltYWdlcy9MQ0QwOVgxMy5wbmcDAAAAAAEBBAAAAAABAAAAAAAAAA==
-		FullPath = /home/brian/dev/LEDDisplayStaging/LCD LED Bitmap Images/LCD09X13.png
-		PartialPath = LCD LED Bitmap Images\LCD09X13.png
+		SaveInfo = APHRcwECAQAAAAAwL2hvbWUvYnJpYW4vZGV2L1hvam9MRURGb250c1N0YWdpbmcvTENEMDhYMTMucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
+		FullPath = /home/brian/dev/XojoLEDFontsStaging/LCD08X13.png
+		PartialPath = LCD08X13.png
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 136.00
+			HSize = 120.00
 			Orientation = Any
 			Platform = 15
 			PPI = 72
@@ -18,7 +18,7 @@ Image LCD09X13
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 136.00
+			HSize = 120.00
 			Orientation = Any
 			Platform = 15
 			PPI = 144
@@ -29,7 +29,7 @@ Image LCD09X13
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 136.00
+			HSize = 120.00
 			Orientation = Any
 			Platform = 15
 			PPI = 216

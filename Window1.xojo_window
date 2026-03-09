@@ -11,51 +11,824 @@ Begin DesktopWindow Window1
    HasMaximizeButton=   True
    HasMinimizeButton=   True
    HasTitleBar     =   True
-   Height          =   100
+   Height          =   692
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
    MaximumWidth    =   32000
-   MenuBar         =   784343039
+   MenuBar         =   1047283711
    MenuBarVisible  =   False
-   MinimumHeight   =   100
-   MinimumWidth    =   420
+   MinimumHeight   =   64
+   MinimumWidth    =   64
    Resizeable      =   True
-   Title           =   "Bitmap display"
+   Title           =   "Xojo Bitmap Font Staging"
    Type            =   0
    Visible         =   True
-   Width           =   420
-   Begin LedDisplayCanvas LedDisplayCanvas1
+   Width           =   752
+   Begin DesktopLabel Label1
       AllowAutoDeactivate=   True
-      AllowFocus      =   False
-      AllowFocusRing  =   True
-      AllowTabs       =   False
-      Backdrop        =   0
-      DoubleBuffer    =   False
+      Bold            =   False
       Enabled         =   True
-      Height          =   100
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
       Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   10
+      Italic          =   False
+      Left            =   42
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "LCD 55X81"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   46
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label7
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "LCD 39X51"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   138
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label8
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   7
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "LCD 15X24"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   228
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label9
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "LCD 13X20"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   267
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label10
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   9
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "LCD 09X13"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   306
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label11
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   10
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "LCD 08X13"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   345
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label12
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   11
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "FNT 18X21"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   461
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label13
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   12
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "FNT 12X14"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   499
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_LCD55X81
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   13
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "12:34"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   46
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_LCD39X51
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   14
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "12:34"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   138
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_LCD15X24
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   15
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "12:34"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   228
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_LCD13X20
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "12:34"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   267
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_LCD09X13
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   17
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "12:34"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   306
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_LCD08X13
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   18
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "12:34"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   345
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_FNT18X21
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   19
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "97.7 Not an airplane just the time."
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   461
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopTextField TextField_FNT12X14
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   20
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   123
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   20
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "97.7 Not an airplane just the time."
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   499
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   100
+   End
+   Begin FontPreviewCanvas FontPreviewCanvas55X81
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   81
+      Index           =   -2147483648
+      Left            =   257
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
       Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   0
-      Transparent     =   True
+      Top             =   45
+      Transparent     =   False
       Visible         =   True
-      Width           =   400
+      Width           =   275
    End
-   Begin Timer Timer1
+   Begin FontPreviewCanvas FontPreviewCanvas39X51
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   51
+      Index           =   -2147483648
+      Left            =   257
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   139
+      Transparent     =   False
+      Visible         =   True
+      Width           =   275
+   End
+   Begin FontPreviewCanvas FontPreviewCanvas15X24
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   24
+      Index           =   -2147483648
+      Left            =   257
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   228
+      Transparent     =   False
+      Visible         =   True
+      Width           =   275
+   End
+   Begin FontPreviewCanvas FontPreviewCanvas13X20
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   20
+      Index           =   -2147483648
+      Left            =   257
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   267
+      Transparent     =   False
+      Visible         =   True
+      Width           =   275
+   End
+   Begin FontPreviewCanvas FontPreviewCanvas09X13
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   13
+      Index           =   -2147483648
+      Left            =   257
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   309
+      Transparent     =   False
+      Visible         =   True
+      Width           =   275
+   End
+   Begin FontPreviewCanvas FontPreviewCanvas08X13
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   13
+      Index           =   -2147483648
+      Left            =   257
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   345
+      Transparent     =   False
+      Visible         =   True
+      Width           =   275
+   End
+   Begin FontPreviewCanvas FontPreviewCanvas_FNT18X21
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   21
+      Index           =   -2147483648
+      Left            =   267
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   461
+      Transparent     =   False
+      Visible         =   True
+      Width           =   275
+   End
+   Begin FontPreviewCanvas FontPreviewCanvas_FNT12X14
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   14
+      Index           =   -2147483648
+      Left            =   267
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      PreviewText     =   ""
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   499
+      Transparent     =   False
+      Visible         =   True
+      Width           =   275
+   End
+   Begin Timer TimerLCD
       Index           =   -2147483648
       LockedInPosition=   False
-      Period          =   400
+      Period          =   500
+      RunMode         =   2
+      Scope           =   0
+      TabPanelIndex   =   0
+   End
+   Begin Timer TimerFNT
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Period          =   20
       RunMode         =   2
       Scope           =   0
       TabPanelIndex   =   0
@@ -66,63 +839,156 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
-		  //Timer1.RunMode = Timer.RunModes.Off
+		  Var lcdChars As String = " 0123456789*_-:"
 		  
-		  mRenderer = New LedDisplayRenderer
+		  Var fntChars As String
+		  For i As Integer = 32 To 126
+		    fntChars = fntChars + Chr(i)
+		  Next
 		  
-		  mRenderer.Rows = 4
-		  mRenderer.Columns = 32
+		  lcd55 = New BitmapLCDFont
+		  lcd55.Setup(LCD55X81, lcdChars, 55, 81, &cFF0000, &c330000, &c000000)
+		  lcd55.LoadMessage(TextField_LCD55X81.Text)
 		  
-		  mRenderer.BackgroundColor = &c000000
+		  lcd39 = New BitmapLCDFont
+		  lcd39.Setup(LCD39X51, lcdChars, 39, 51, &cFF0000, &c330000, &c000000)
+		  lcd39.LoadMessage(TextField_LCD39X51.Text)
 		  
-		  //mRenderer.ForegroundColor = &c8B5CF6
-		  //mRenderer.ColorScheme = LedColorScheme.FromBaseColor(mRenderer.ForegroundColor)
-		  mRenderer.SetFont("FNT18X21")
+		  lcd15 = New BitmapLCDFont
+		  lcd15.Setup(LCD15X24, lcdChars, 15, 24, &cFF0000, &c330000, &c000000)
+		  lcd15.LoadMessage(TextField_LCD15X24.Text)
 		  
-		  mRenderer.SetText(Array( _
-		  "XOJO LED DISPLAY DEMO", _
-		  "USE XOJO TO CREATE", _
-		  "CROSS PLATFORM APPS", _
-		  "BUILD ONCE DEPLOY EVERYWHERE" _
-		  ))
+		  lcd13 = New BitmapLCDFont
+		  lcd13.Setup(LCD13X20, lcdChars, 13, 20, &cFF0000, &c330000, &c000000)
+		  lcd13.LoadMessage(TextField_LCD13X20.Text)
 		  
-		  LedDisplayCanvas1.Renderer = mRenderer
-		  LedDisplayCanvas1.SizeToContent
-		  LedDisplayCanvas1.Refresh
-		  '
-		  'mRenderer = New LedDisplayRenderer
-		  'mRenderer.Rows = 4
-		  'mRenderer.Columns = 24
-		  'mRenderer.ForegroundColor = &c0A84FF
-		  'mRenderer.BackgroundColor = &c000000
-		  'mRenderer.ShowGlow = True
-		  'mRenderer.ShowGlassOverlay = True
-		  'mRenderer.SetFont("FNT18X21")
+		  lcd09 = New BitmapLCDFont
+		  lcd09.Setup(LCD09X13, lcdChars, 9, 13, &cFF0000, &c330000, &c000000)
+		  lcd09.LoadMessage(TextField_LCD09X13.Text)
+		  
+		  lcd08 = New BitmapLCDFont
+		  lcd08.Setup(LCD08X13, lcdChars, 8, 13, &cFF0000, &c330000, &c000000)
+		  lcd08.LoadMessage(TextField_LCD08X13.Text)
+		  
+		  fnt18 = New BitmapFNTFont
+		  fnt18.Setup(FNT18X21, fntChars, 18, 21, &c66AAFF, &c112244, &c000000)
+		  fnt18.LoadMessage(TextField_FNT18X21.Text)
+		  
+		  fnt12 = New BitmapFNTFont
+		  fnt12.Setup(FNT12X14, fntChars, 12, 14, &c66AAFF, &c112244, &c000000)
+		  fnt12.LoadMessage(TextField_FNT12X14.Text)
+		  
+		  FontPreviewCanvas55X81.SetFont(lcd55)
+		  FontPreviewCanvas55X81.PreviewText = lcd55.Message
+		  
+		  FontPreviewCanvas39X51.SetFont(lcd39)
+		  FontPreviewCanvas39X51.PreviewText = lcd39.Message
+		  
+		  FontPreviewCanvas15X24.SetFont(lcd15)
+		  FontPreviewCanvas15X24.PreviewText = lcd15.Message
+		  
+		  FontPreviewCanvas13X20.SetFont(lcd13)
+		  FontPreviewCanvas13X20.PreviewText = lcd13.Message
+		  
+		  FontPreviewCanvas09X13.SetFont(lcd09)
+		  FontPreviewCanvas09X13.PreviewText = lcd09.Message
+		  
+		  FontPreviewCanvas08X13.SetFont(lcd08)
+		  FontPreviewCanvas08X13.PreviewText = lcd08.Message
+		  
+		  FontPreviewCanvas_FNT18X21.SetFont(fnt18)
+		  FontPreviewCanvas_FNT18X21.PreviewText = fnt18.Message
+		  
+		  FontPreviewCanvas_FNT12X14.SetFont(fnt12)
+		  FontPreviewCanvas_FNT12X14.PreviewText = fnt12.Message
 		End Sub
 	#tag EndEvent
 
 
 	#tag Property, Flags = &h0
-		mRenderer As LedDisplayRenderer
+		fnt12 As BitmapFNTFont
 	#tag EndProperty
 
+	#tag Property, Flags = &h0
+		fnt18 As BitmapFNTFont
+	#tag EndProperty
 
-	#tag Using, Name = LEDDisplayMod
-	#tag EndUsing
+	#tag Property, Flags = &h0
+		lcd08 As BitmapLCDFont
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		lcd09 As BitmapLCDFont
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		lcd13 As BitmapLCDFont
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		lcd15 As BitmapLCDFont
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		lcd39 As BitmapLCDFont
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		lcd55 As BitmapLCDFont
+	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events LedDisplayCanvas1
-#tag EndEvents
-#tag Events Timer1
+#tag Events TimerLCD
 	#tag Event
 		Sub Action()
-		  if mRenderer <> Nil Then
-		    mRenderer.ScrollStep
-		    LedDisplayCanvas1.Refresh
-		  end if
+		  If lcd55 <> Nil Then
+		    lcd55.ClockTick
+		    FontPreviewCanvas55X81.Refresh
+		  End If
 		  
+		  If lcd39 <> Nil Then
+		    lcd39.ClockTick
+		    FontPreviewCanvas39X51.Refresh
+		  End If
+		  
+		  If lcd15 <> Nil Then
+		    lcd15.ClockTick
+		    FontPreviewCanvas15X24.Refresh
+		  End If
+		  
+		  If lcd13 <> Nil Then
+		    lcd13.ClockTick
+		    FontPreviewCanvas13X20.Refresh
+		  End If
+		  
+		  If lcd09 <> Nil Then
+		    lcd09.ClockTick
+		    FontPreviewCanvas09X13.Refresh
+		  End If
+		  
+		  If lcd08 <> Nil Then
+		    lcd08.ClockTick
+		    FontPreviewCanvas08X13.Refresh
+		  End If
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events TimerFNT
+	#tag Event
+		Sub Action()
+		  
+		  If fnt18 <> Nil Then
+		    fnt18.ClockTick
+		    FontPreviewCanvas_FNT18X21.Refresh
+		  End If
+		  
+		  If fnt12 <> Nil Then
+		    fnt12.ClockTick
+		    FontPreviewCanvas_FNT12X14.Refresh
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents

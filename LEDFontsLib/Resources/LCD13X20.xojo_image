@@ -1,39 +1,39 @@
 #tag MultiImage
-Image LCD55X81
+Image LCD13X20
 	#tag ImageRepresentation
-		SaveInfo = APHRcwECAQAAAABEL2hvbWUvYnJpYW4vZGV2L0xFRERpc3BsYXlTdGFnaW5nL0xDRCBMRUQgQml0bWFwIEltYWdlcy9MQ0Q1NVg4MS5wbmcDAAAAAAEBBAAAAAABAAAAAAAAAA==
-		FullPath = /home/brian/dev/LEDDisplayStaging/LCD LED Bitmap Images/LCD55X81.png
-		PartialPath = LCD LED Bitmap Images\LCD55X81.png
+		SaveInfo = APHRcwECAQAAAAAwL2hvbWUvYnJpYW4vZGV2L1hvam9MRURGb250c1N0YWdpbmcvTENEMTNYMjAucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
+		FullPath = /home/brian/dev/XojoLEDFontsStaging/LCD13X20.png
+		PartialPath = LCD13X20.png
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 825.00
+			HSize = 195.00
 			Orientation = Any
 			Platform = 15
 			PPI = 72
-			VSize = 81.00
+			VSize = 20.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 	#tag ImageRepresentation
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 825.00
+			HSize = 195.00
 			Orientation = Any
 			Platform = 15
 			PPI = 144
-			VSize = 81.00
+			VSize = 20.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 	#tag ImageRepresentation
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 825.00
+			HSize = 195.00
 			Orientation = Any
 			Platform = 15
 			PPI = 216
-			VSize = 81.00
+			VSize = 20.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 End Image
