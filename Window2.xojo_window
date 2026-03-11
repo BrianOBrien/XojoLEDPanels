@@ -1,11 +1,11 @@
 #tag DesktopWindow
 Begin DesktopWindow Window2
    Backdrop        =   0
-   BackgroundColor =   &cFFFFFF
+   BackgroundColor =   &c31313100
    Composite       =   False
-   DefaultLocation =   2
+   DefaultLocation =   4
    FullScreen      =   False
-   HasBackgroundColor=   False
+   HasBackgroundColor=   True
    HasCloseButton  =   True
    HasFullScreenButton=   False
    HasMaximizeButton=   True
@@ -21,7 +21,7 @@ Begin DesktopWindow Window2
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   True
-   Title           =   "Untitled"
+   Title           =   "Bitmap Font Staging"
    Type            =   0
    Visible         =   True
    Width           =   506
@@ -220,8 +220,8 @@ Begin DesktopWindow Window2
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      OffColor        =   &c33000000
-      OnColor         =   &cFF000000
+      OffColor        =   &c2A000000
+      OnColor         =   &cFF202000
       RespectAlpha    =   True
       Scope           =   0
       TabIndex        =   9
@@ -251,8 +251,8 @@ Begin DesktopWindow Window2
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      OffColor        =   &c33000000
-      OnColor         =   &cFF000000
+      OffColor        =   &c00201000
+      OnColor         =   &c00FF6000
       RespectAlpha    =   True
       Scope           =   0
       TabIndex        =   10
@@ -282,8 +282,8 @@ Begin DesktopWindow Window2
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      OffColor        =   &c33000000
-      OnColor         =   &cFF000000
+      OffColor        =   &c30200000
+      OnColor         =   &cFFB00000
       RespectAlpha    =   True
       Scope           =   0
       TabIndex        =   11
@@ -313,8 +313,8 @@ Begin DesktopWindow Window2
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      OffColor        =   &c33000000
-      OnColor         =   &cFF000000
+      OffColor        =   &c00183000
+      OnColor         =   &c4090FF00
       RespectAlpha    =   True
       Scope           =   0
       TabIndex        =   12

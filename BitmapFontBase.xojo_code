@@ -79,11 +79,68 @@ Inherits DesktopCanvas
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Sub DrawBorder(g As Graphics)
+		  Var darkColor  As Color = Color.RGB(0,0,0,70)
+		  Var lightColor As Color = Color.RGB(100,100,100,50)
+		  
+		  Var w As Integer = g.Width
+		  Var h As Integer = g.Height
+		  
+		  ' top
+		  g.DrawingColor = darkColor
+		  g.DrawLine(0, 0, w-1, 0)
+		  
+		  ' left
+		  g.DrawLine(0, 0, 0, h-1)
+		  
+		  ' bottom (1px up)
+		  g.DrawingColor = lightColor
+		  g.DrawLine(0, h-1, w-1, h-1)
+		  
+		  ' right (1px left)
+		  g.DrawLine(w-1, 0, w-1, h-1)
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub DrawGlyph(g As Graphics, ch As String, dx As Double)
 		  Var glyph As Picture = GlyphPictureForCharacter(ch)
 		  If glyph = Nil Then Return
 		  g.DrawPicture(glyph, dx, 0)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub DrawOverlay(g As Graphics)
+		  Var h As Integer = g.Height
+		  If h <= 1 Then Return
+		  
+		  Var topPct As Double = 0.15
+		  Var midPct As Double = 0.65
+		  Var botPct As Double = 0.20
+		  
+		  Var yTopEnd As Integer = h * topPct
+		  Var yMidEnd As Integer = yTopEnd + (h * midPct)
+		  
+		  'Var topColor As Color = Color.RGBA(0, 0, 0, 250)
+		  'Var midColor As Color = Color.RGBA(255, 255, 255, 200)
+		  'Var botColor As Color = Color.RGBA(255, 255, 255, 190)
+		  var topColor as color = Color.RGBA(0,0,0,235)        ' gentle shadow
+		  var midColor as color = Color.RGBA(255,255,255,252)  ' almost invisible
+		  var botColor as color = Color.RGBA(255,255,255,240)  ' soft highlight
+		  For y As Integer = 0 To h - 1
+		    If y < yTopEnd Then
+		      g.DrawingColor = topColor
+		    ElseIf y < yMidEnd Then
+		      g.DrawingColor = midColor
+		    Else
+		      g.DrawingColor = botColor
+		    End If
+		    
+		    g.DrawLine(0, y, g.Width - 1, y)
+		  Next
 		End Sub
 	#tag EndMethod
 
@@ -188,6 +245,10 @@ Inherits DesktopCanvas
 		      If dx >= g.Width Then Exit
 		    Next
 		  Wend
+		  
+		  //DrawBorder(g)
+		  DrawOverlay(g)
+		  
 		End Sub
 	#tag EndMethod
 
