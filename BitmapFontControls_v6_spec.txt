@@ -1,0 +1,20 @@
+Class names:
+BitmapFontBase
+BitmapLCDFont
+BitmapFNTFont
+LCD08X13Display
+LCD09X13Display
+LCD13X20Display
+LCD15X24Display
+LCD39X51Display
+LCD55X81Display
+FNT12X14Display
+FNT18X21Display
+
+Notes:
+- LCD map is " 0123456789B_-:."
+- ':' uses left half of the last physical cell.
+- '.' uses right half of the last physical cell.
+- Concrete controls expose design-time Width/Height in ViewBehavior.
+- Paint is exported as an Event in BitmapFontBase.
+- BeginUpdates/EndUpdates are retained.

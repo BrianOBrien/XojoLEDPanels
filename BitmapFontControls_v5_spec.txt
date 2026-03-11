@@ -1,0 +1,33 @@
+Bitmap Font Controls v5
+
+Intent
+- Concrete classes are the only public surface.
+- Form code should talk directly to LCD55X81Display, FNT12X14Display, etc.
+- Base classes are plumbing.
+
+Public API
+- DisplayValue As String
+- OnColor As Color
+- OffColor As Color
+- BackgroundColor As Color
+- RespectAlpha As Boolean
+- BeginUpdates()
+- EndUpdates()
+- ResetOffset()
+- SetDisplayValue(value As String)
+
+Character Map
+- Internal logical character string for LCD classes:
+  " 0123456789B_-:."
+- ':' uses the left half of the last physical source cell.
+- '.' uses the right half of the last physical source cell.
+- Both advance by half a cell width.
+
+File Naming
+- File names match class names.
+- No version suffix in the class file name.
+
+Notes
+- PNG resources are not included in this package.
+- Concrete display classes expect project picture constants named:
+  LCD08X13, LCD09X13, LCD13X20, LCD15X24, LCD39X51, LCD55X81, FNT12X14, FNT18X21
