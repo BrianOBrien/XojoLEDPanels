@@ -1,39 +1,39 @@
 #tag MultiImage
-Image carbon_fibre
+Image FNT32X24
 	#tag ImageRepresentation
-		SaveInfo = APHRcwECAQAAAAAmL2hvbWUvYnJpYW4vRG93bmxvYWRzL2NhcmJvbl9maWJyZS5wbmcDAAAAAAEBBAAAAAABAAAAAAAAAA==
-		FullPath = /home/brian/Downloads/carbon_fibre.png
-		PartialPath = ..\..\Downloads\carbon_fibre.png
+		SaveInfo = APHRcwECAQAAAAAqL2hvbWUvYnJpYW4vZGV2L1hvam9MRURQYW5lbHMvRk5UMzJYMjQucG5nAwAAAAABAQQAAAAAAQAAAAAAAAA=
+		FullPath = /home/brian/dev/XojoLEDPanels/FNT32X24.png
+		PartialPath = FNT32X24.png
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 24.00
+			HSize = 8192.00
 			Orientation = Any
 			Platform = 15
 			PPI = 72
-			VSize = 22.00
+			VSize = 24.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 	#tag ImageRepresentation
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 24.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 144
-			VSize = 22.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 	#tag ImageRepresentation
 		#tag ImageSpecification
 			Comment = 
 			Device = 31
-			HSize = 24.00
+			HSize = -1.00
 			Orientation = Any
 			Platform = 15
 			PPI = 216
-			VSize = 22.00
+			VSize = -1.00
 		#tag EndImageSpecification
 	#tag EndImageRepresentation
 End Image

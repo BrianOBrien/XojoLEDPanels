@@ -1,10 +1,10 @@
 #tag Class
-Class LCD08X13Display
+Class LCD09X13Display
 Inherits BitmapLCDFont
 	#tag Method, Flags = &h0
 		Sub Constructor()
 		  Super.Constructor
-		  ConfigureLCD(LCD08X13, 8, 13)
+		  ConfigureLCD(LCD09X13, 9, 13)
 		End Sub
 	#tag EndMethod
 
@@ -54,7 +54,7 @@ Inherits BitmapLCDFont
 			Name="Width"
 			Visible=true
 			Group="Position"
-			InitialValue="64"
+			InitialValue="288"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty

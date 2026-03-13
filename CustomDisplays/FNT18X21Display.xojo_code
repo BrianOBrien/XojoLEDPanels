@@ -1,22 +1,21 @@
 #tag Class
-Protected Class BitmapLCDFont
-Inherits BitmapFontBase
-	#tag Method, Flags = &h1
-		Protected Sub ConfigureLCD(fontSheet As Picture, cellWidth As Integer, cellHeight As Integer)
-		  Configure(fontSheet, " 0123456789B_-:.", cellWidth, cellHeight, OnColor, OffColor, BackgroundColor)
+Class FNT18X21Display
+Inherits BitmapFNTFont
+	#tag Method, Flags = &h0
+		Sub Constructor()
+		  Super.Constructor
+		  
+		  Var glyphs As String
+		  
+		  glyphs = " !""#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖ×ØÙÚÛÜÝÞß"
+		  
+		  ConfigureFNT(FNT18X21, glyphs, 18, 21)
+		  
 		End Sub
 	#tag EndMethod
 
 
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="TabPanelIndex"
-			Visible=false
-			Group="Position"
-			InitialValue="0"
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
@@ -61,7 +60,7 @@ Inherits BitmapFontBase
 			Name="Width"
 			Visible=true
 			Group="Position"
-			InitialValue="100"
+			InitialValue="144"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
@@ -69,7 +68,7 @@ Inherits BitmapFontBase
 			Name="Height"
 			Visible=true
 			Group="Position"
-			InitialValue="100"
+			InitialValue="21"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
@@ -238,6 +237,14 @@ Inherits BitmapFontBase
 			Visible=true
 			Group="Behavior"
 			InitialValue="120"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TabPanelIndex"
+			Visible=false
+			Group="Position"
+			InitialValue="0"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty

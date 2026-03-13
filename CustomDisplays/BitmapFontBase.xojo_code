@@ -3,7 +3,9 @@ Protected Class BitmapFontBase
 Inherits DesktopCanvas
 	#tag Event
 		Sub Paint(g As Graphics, areas() As Rect)
+		  #pragma  Unused areas 
 		  Render(g)
+		  
 		  
 		End Sub
 	#tag EndEvent
@@ -146,10 +148,6 @@ Inherits DesktopCanvas
 
 	#tag Method, Flags = &h1
 		Protected Function DrawWidthForCharacter(ch As String) As Integer
-		  If ch = ":" Or ch = "." Then
-		    Return mCellWidth / 2.0
-		  End If
-		  
 		  Return mCellWidth
 		End Function
 	#tag EndMethod
@@ -175,24 +173,11 @@ Inherits DesktopCanvas
 		Protected Function GlyphPictureForCharacter(ch As String) As Picture
 		  If mFontSheet Is Nil Then Return Nil
 		  
-		  Var sx As Integer
-		  Var sw As Integer
+		  Var idx As Integer = GlyphIndexForCharacter(ch)
+		  If idx < 0 Then idx = 0
 		  
-		  If ch = ":" Then
-		    sx = LastCellIndex * mCellWidth
-		    sw = mCellWidth \ 2
-		    
-		  ElseIf ch = "." Then
-		    sx = (LastCellIndex * mCellWidth) + (mCellWidth \ 2)
-		    sw = mCellWidth - (mCellWidth \ 2)
-		    
-		  Else
-		    Var idx As Integer = GlyphIndexForCharacter(ch)
-		    If idx < 0 Then idx = 0
-		    
-		    sx = idx * mCellWidth
-		    sw = mCellWidth
-		  End If
+		  Var sx As Integer = idx * mCellWidth
+		  Var sw As Integer = mCellWidth
 		  
 		  Var src As New Picture(sw, mCellHeight)
 		  src.Graphics.DrawPicture(mFontSheet, 0, 0, sw, mCellHeight, sx, 0, sw, mCellHeight)
@@ -216,35 +201,75 @@ Inherits DesktopCanvas
 
 	#tag Method, Flags = &h0
 		Sub Render(g As Graphics)
-		  g.DrawingColor = BackgroundColor
+		  g.DrawingColor = OffColor
 		  g.FillRectangle(0, 0, g.Width, g.Height)
 		  
 		  If DisplayValue = "" Then Return
 		  
+		  Var renderValue As String = DisplayValue
+		  
 		  Var totalWidth As Double = 0
-		  For i As Integer = 0 To DisplayValue.Length - 1
-		    totalWidth = totalWidth + DrawWidthForCharacter(DisplayValue.Middle(i, 1))
+		  For i As Integer = 0 To renderValue.Length - 1
+		    totalWidth = totalWidth + DrawWidthForCharacter(renderValue.Middle(i, 1))
 		  Next
 		  
 		  If totalWidth <= 0 Then Return
 		  
-		  Var dx As Double = 0 - mScrollOffset
+		  Var dx As Double
 		  
-		  // Shift starting point left until it is within one wrapped cycle
-		  While dx > 0
-		    dx = dx - totalWidth
-		  Wend
+		  If totalWidth <= g.Width Then
+		    
+		    If Self IsA BitmapLCDFont Then
+		      // For LCDs, mimic manual left-padding with spaces.
+		      Var padCount As Integer = Floor((g.Width - totalWidth) / mCellWidth)
+		      
+		      If padCount > 0 Then
+		        Var pad As String = ""
+		        For i As Integer = 1 To padCount
+		          pad = pad + " "
+		        Next
+		        
+		        renderValue = pad + renderValue
+		        
+		        // Recompute width after padding
+		        totalWidth = 0
+		        For i As Integer = 0 To renderValue.Length - 1
+		          totalWidth = totalWidth + DrawWidthForCharacter(renderValue.Middle(i, 1))
+		        Next
+		      End If
+		    End If
+		    
+		    // Keep existing right-justify behavior
+		    dx = g.Width - totalWidth
+		    
+		  Else
+		    // Scrolling marquee
+		    dx = -mScrollOffset
+		  End If
 		  
-		  // Keep drawing wrapped copies until the control is filled
-		  While dx < g.Width
-		    For i As Integer = 0 To DisplayValue.Length - 1
-		      Var ch As String = DisplayValue.Middle(i, 1)
+		  If totalWidth <= g.Width Then
+		    // Message fits: draw it once only, no wrap
+		    For i As Integer = 0 To renderValue.Length - 1
+		      Var ch As String = renderValue.Middle(i, 1)
 		      DrawGlyph(g, ch, dx)
 		      dx = dx + DrawWidthForCharacter(ch)
-		      
-		      If dx >= g.Width Then Exit
 		    Next
-		  Wend
+		  Else
+		    // Message longer than display: wrap/scroll
+		    While dx > 0
+		      dx = dx - totalWidth
+		    Wend
+		    
+		    While dx < g.Width
+		      For i As Integer = 0 To DisplayValue.Length - 1
+		        Var ch As String = DisplayValue.Middle(i, 1)
+		        DrawGlyph(g, ch, dx)
+		        dx = dx + DrawWidthForCharacter(ch)
+		        
+		        If dx >= g.Width Then Exit
+		      Next
+		    Wend
+		  End If
 		  
 		  //DrawBorder(g)
 		  DrawOverlay(g)

@@ -11,7 +11,7 @@ Begin DesktopWindow Window2
    HasMaximizeButton=   True
    HasMinimizeButton=   True
    HasTitleBar     =   True
-   Height          =   442
+   Height          =   540
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -50,7 +50,7 @@ Begin DesktopWindow Window2
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   388
+      Top             =   486
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -81,7 +81,7 @@ Begin DesktopWindow Window2
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   388
+      Top             =   486
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -94,7 +94,7 @@ Begin DesktopWindow Window2
       AllowTabs       =   False
       Backdrop        =   0
       BackgroundColor =   &c00000000
-      DisplayValue    =   "       THIS ISNT LOUD [123]......."
+      DisplayValue    =   "CHAT J'AI PÈTÉ 7:47. NOT AN AIRPLANE JUST THE TIME."
       Enabled         =   True
       Height          =   21
       Index           =   -2147483648
@@ -111,12 +111,12 @@ Begin DesktopWindow Window2
       TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   ""
+      Tooltip         =   "18X21"
       Top             =   297
       Transparent     =   False
       UpdatePeriod    =   120
       Visible         =   True
-      Width           =   437
+      Width           =   440
    End
    Begin Timer LCDTimer
       Index           =   -2147483648
@@ -129,7 +129,7 @@ Begin DesktopWindow Window2
    Begin Timer FNTTimer
       Index           =   -2147483648
       LockedInPosition=   False
-      Period          =   40
+      Period          =   20
       RunMode         =   0
       Scope           =   0
       TabPanelIndex   =   0
@@ -166,7 +166,7 @@ Begin DesktopWindow Window2
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   388
+      Top             =   486
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -196,7 +196,7 @@ Begin DesktopWindow Window2
       TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   ""
+      Tooltip         =   "12X14"
       Top             =   351
       Transparent     =   False
       UpdatePeriod    =   120
@@ -218,7 +218,7 @@ Begin DesktopWindow Window2
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   True
+      LockRight       =   False
       LockTop         =   True
       OffColor        =   &c2A000000
       OnColor         =   &cFF202000
@@ -249,7 +249,7 @@ Begin DesktopWindow Window2
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   True
+      LockRight       =   False
       LockTop         =   True
       OffColor        =   &c00201000
       OnColor         =   &c00FF6000
@@ -263,7 +263,7 @@ Begin DesktopWindow Window2
       Transparent     =   False
       UpdatePeriod    =   120
       Visible         =   True
-      Width           =   440
+      Width           =   360
    End
    Begin LCD09X13Display LCD09X13Display1
       AllowAutoDeactivate=   True
@@ -280,7 +280,7 @@ Begin DesktopWindow Window2
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   True
+      LockRight       =   False
       LockTop         =   True
       OffColor        =   &c30200000
       OnColor         =   &cFFB00000
@@ -294,7 +294,7 @@ Begin DesktopWindow Window2
       Transparent     =   False
       UpdatePeriod    =   120
       Visible         =   True
-      Width           =   440
+      Width           =   288
    End
    Begin LCD08X13Display LCD08X13Display1
       AllowAutoDeactivate=   True
@@ -303,7 +303,7 @@ Begin DesktopWindow Window2
       AllowTabs       =   False
       Backdrop        =   0
       BackgroundColor =   &c00000000
-      DisplayValue    =   "      3.141592653589793238462643383279          "
+      DisplayValue    =   "3.141592653589793238462643383279"
       Enabled         =   True
       Height          =   13
       Index           =   -2147483648
@@ -311,7 +311,7 @@ Begin DesktopWindow Window2
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   True
+      LockRight       =   False
       LockTop         =   True
       OffColor        =   &c00183000
       OnColor         =   &c4090FF00
@@ -325,7 +325,262 @@ Begin DesktopWindow Window2
       Transparent     =   False
       UpdatePeriod    =   120
       Visible         =   True
-      Width           =   437
+      Width           =   256
+   End
+   Begin FNT32X24Display FNT32X24Display1
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      BackgroundColor =   &cC7D0B000
+      DisplayValue    =   ""
+      Enabled         =   True
+      Height          =   24
+      Index           =   -2147483648
+      Left            =   34
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      OffColor        =   &c2F3B2B00
+      OnColor         =   &cC7D0B000
+      RespectAlpha    =   True
+      Scope           =   0
+      TabIndex        =   13
+      TabPanelIndex   =   0
+      TabStop         =   False
+      Tooltip         =   "32X24"
+      Top             =   392
+      Transparent     =   False
+      UpdatePeriod    =   20
+      Visible         =   True
+      Width           =   440
+   End
+   Begin DesktopLabel Label1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   36
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   14
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "55X81"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   6
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label2
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   34
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   15
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "15X24"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   124
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label3
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   34
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "09X13"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   182
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label4
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   34
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   17
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "08X13"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   229
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label5
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   36
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   18
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "18X21"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   276
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label6
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   34
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   19
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "12X14"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   330
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel Label7
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   34
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   20
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "32X24"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   417
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
    End
 End
 #tag EndDesktopWindow
@@ -333,9 +588,12 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
-		  //LCD55X81Display1.StopScrolling
-		  //LCD55X81Display1.LoadMessage("56789*_-:")
+		  Var glyphs As String
 		  
+		  For i As Integer = 0 To 255
+		    glyphs = glyphs + Chr(i)
+		  Next
+		  FNT32X24Display1.SetDisplayValue(glyphs)
 		End Sub
 	#tag EndEvent
 
@@ -367,27 +625,21 @@ End
 		Sub Action()
 		  static cntr as Integer = 0
 		  
-		  LCD55X81Display1.SetDisplayValue(Right("        " + cntr.ToString, 8))
+		  LCD55X81Display1.SetDisplayValue(cntr.ToString)
 		  cntr = cntr + 1
 		  
 		  Var d As DateTime = DateTime.Now
-		  Var s As String = d.Month.ToString(Locale.Raw, "00") + "-" + _
-		  d.Day.ToString(Locale.Raw, "00") + "-" + _
-		  Right(d.Year.ToString, 2)
+		  Var s As String = d.Month.ToString(Locale.Raw, "00") + "-" + d.Day.ToString(Locale.Raw, "00") + "-" + Right(d.Year.ToString, 2)
 		  
-		  LCD15X24Display1.SetDisplayValue(Right("                                                          " + s, 29))
+		  LCD15X24Display1.SetDisplayValue(s)
 		  
 		  
 		  Var t As DateTime = DateTime.Now
-		  s = t.Hour.ToString(Locale.Raw, "00") + ":" + _
-		  t.Minute.ToString(Locale.Raw, "00") + ":" + _
-		  t.Second.ToString(Locale.Raw, "00")
+		  s = t.Hour.ToString(Locale.Raw, "00") + ":" + t.Minute.ToString(Locale.Raw, "00") + ":" + t.Second.ToString(Locale.Raw, "00")
 		  
-		  LCD09X13Display1.SetDisplayValue(Right("                                                           " + s, 29))
-		  
-		  //Var src As String = "       3.141592653589793238462643383279           "
+		  LCD09X13Display1.SetDisplayValue(s)
 		  LCD08X13Display1.Tick
-		  //SetDisplayValue(src)
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -396,6 +648,8 @@ End
 		Sub Action()
 		  FNT18X21Display1.Tick
 		  FNT12X14Display1.Tick
+		  FNT32X24Display1.Tick
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

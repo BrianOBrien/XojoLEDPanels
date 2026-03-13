@@ -1,15 +1,61 @@
 #tag Class
-Class LCD09X13Display
-Inherits BitmapLCDFont
-	#tag Method, Flags = &h0
-		Sub Constructor()
-		  Super.Constructor
-		  ConfigureLCD(LCD09X13, 9, 13)
+Protected Class BitmapLCDFont
+Inherits BitmapFontBase
+	#tag Method, Flags = &h1
+		Protected Sub ConfigureLCD(fontSheet As Picture, cellWidth As Integer, cellHeight As Integer)
+		  Configure(fontSheet, " 0123456789B_-:.", cellWidth, cellHeight, OnColor, OffColor, BackgroundColor)
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function DrawWidthForCharacter(ch As String) As Integer
+		  If ch = ":" Or ch = "." Then
+		    Return mCellWidth / 2.0
+		  End If
+		  
+		  Return mCellWidth
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function GlyphPictureForCharacter(ch As String) As Picture
+		  If mFontSheet Is Nil Then Return Nil
+		  
+		  Var sx As Integer
+		  Var sw As Integer
+		  
+		  If ch = ":" Then
+		    sx = LastCellIndex * mCellWidth
+		    sw = mCellWidth \ 2
+		    
+		  ElseIf ch = "." Then
+		    sx = (LastCellIndex * mCellWidth) + (mCellWidth \ 2)
+		    sw = mCellWidth - (mCellWidth \ 2)
+		    
+		  Else
+		    Var idx As Integer = GlyphIndexForCharacter(ch)
+		    If idx < 0 Then idx = 0
+		    
+		    sx = idx * mCellWidth
+		    sw = mCellWidth
+		  End If
+		  
+		  Var src As New Picture(sw, mCellHeight)
+		  src.Graphics.DrawPicture(mFontSheet, 0, 0, sw, mCellHeight, sx, 0, sw, mCellHeight)
+		  Return ColorizeGlyph(src)
+		End Function
 	#tag EndMethod
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="TabPanelIndex"
+			Visible=false
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
@@ -54,7 +100,7 @@ Inherits BitmapLCDFont
 			Name="Width"
 			Visible=true
 			Group="Position"
-			InitialValue="72"
+			InitialValue="100"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
@@ -62,7 +108,7 @@ Inherits BitmapLCDFont
 			Name="Height"
 			Visible=true
 			Group="Position"
-			InitialValue="13"
+			InitialValue="100"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
@@ -231,14 +277,6 @@ Inherits BitmapLCDFont
 			Visible=true
 			Group="Behavior"
 			InitialValue="120"
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TabPanelIndex"
-			Visible=false
-			Group="Position"
-			InitialValue="0"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
